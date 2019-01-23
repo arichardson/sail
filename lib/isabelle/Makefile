@@ -6,8 +6,11 @@ THYS = Sail2_instr_kinds.thy Sail2_values.thy Sail2_operators.thy \
 EXTRA_THYS = Sail2_state_monad_lemmas.thy Sail2_state_lemmas.thy \
   Sail2_prompt_monad_lemmas.thy \
   Sail2_operators_mwords_lemmas.thy Hoare.thy
-
-LEM_ISA_LIB?=$(shell opam config var lem:share)/isabelle-lib
+  
+$(info $(shell env | sort))
+$(info "OPAM=$(shell which opam)")
+LEM_ISA_LIB?=$(shell opam config var lem:share)/isabelle-lib)
+$(info "LEM_ISA_LIB=$(LEM_ISA_LIB)")
 ifeq ($(wildcard $(LEM_ISA_LIB)/ROOT),)
 $(error isabelle-lib directory of Lem not found. Please set the LEM_ISA_LIB environment variable)
 endif
